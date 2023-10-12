@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace OvertimePayCalculator
 {
-    class Calculator
+    public class Calculator
     {
-        public static double Calculate(double hours, double rate)
+        private double hours;
+        private double rate;
+        public Calculator(double hours, double rate)
+        {
+            this.hours = hours;
+            this.rate = rate;
+        }
+
+        public double Calculate()
         {
             double finalPay = 0;
 

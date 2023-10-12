@@ -1,38 +1,20 @@
-﻿namespace OvertimePayCalculator
+﻿using OvertimePayCalculator;
+class Program
 {
-    class Program
+    private static double hours;
+    private static double rate;
 
+    static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            double hours;
-            double rate;
+        Console.WriteLine("Hours Worked: ");
+        hours = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Rate of Pay: ");
+        rate = Convert.ToDouble(Console.ReadLine());
 
-            if (args.Length == 2)
-            {
-                hours = Convert.ToDouble(args[0]);
-                rate = Convert.ToDouble(args[1]);
-            }
-            else
-            {
-                try
-                {
-                    Console.WriteLine("Hours Worked: ");
-                    hours = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Rate of Pay: ");
-                    rate = Convert.ToDouble(Console.ReadLine());
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Please enter valid numbers only");
-                }
-            }
+        var calculator1 = new Calculator(hours, rate);
+        var calculator2 = new Calculator(hours * 2, rate * 2);
 
-            var calculator = new Calculator();
-
-
-            Console.WriteLine("Total Pay: " + calculator);
-
-                }
-            }
-        }
+        Console.WriteLine("Total Pay: " + calculator1.Calculate());
+        Console.WriteLine("Total Pay with rate doubled and hours doubled: " + calculator2.Calculate());
+    }
+}
